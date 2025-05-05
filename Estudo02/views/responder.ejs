@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/header') %>
+    </head>
+    <body>
+        <%- include('partials/navbar') %>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="text-center">- Projeto 02 - Responder</h5>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="/perguntar/<%=pergunta.id%>/responder">
+                            <div>
+                                <!--<label>Título</label><br/>-->
+                                <h3><%=pergunta.titulo%></h3>
+                            </div>
+                            <div>
+                                <!--<br/>-->
+                                <!--<label>Descrição</label><br/>-->
+                                <p><%=((pergunta.descricao)?pergunta.descricao:'- Nenhuma descrição informada! -')%></p>
+                            </div>
+                            <div>
+                                <br/>
+                                <label>Responder</label><br/>
+                                <textarea class="form-control" name="responder" placeholder="Responder pergunta!"></textarea>
+                            </div>
+                            <div>
+                                <br/>
+                                <button type="submit" class="btn btn-success">Confirmar Resposta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br/>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="text-center">- Respostas -</h5>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <% if(respostas.length) { %>
+                            <ul class="list-group">
+                                <% respostas.forEach( (resp,key) => { %>
+                                    <li class="list-group-item">
+                                        <h3><%=(key+1)%>. <%= resp.resposta %></h3>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                            <% }else { %>
+                                <p class="text-center">Nenhuma pergunta disponível no momento!</p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer') %>
+    </body>
+</html>

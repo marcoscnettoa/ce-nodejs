@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/header') %>
+    </head>
+    <body>
+        <%- include('partials/navbar') %>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="text-center">- Projeto 02 - Perguntas</h5>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="/perguntar/salvar">
+                            <div>
+                                <label>Título</label><br/>
+                                <input class="form-control" type="text" name="titulo" placeholder="Informe um título para sua pergunta!">
+                            </div>
+                            <div>
+                                <br/>
+                                <label>Descrição</label><br/>
+                                <textarea class="form-control" name="descricao" placeholder="Descreva aqui a sua pergunta!"></textarea>
+                            </div>
+                            <div>
+                                <br/>
+                                <button type="submit" class="btn btn-success">Perguntar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer') %>
+    </body>
+</html>
